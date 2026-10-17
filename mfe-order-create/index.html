@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>order-create-mfe — standalone harness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f5f7fb; padding: 24px; }
+    pre { background: #111827; color: #d1fae5; padding: 12px; border-radius: 8px; max-width: 760px; overflow: auto; }
+  </style>
+  <script type="module" src="./order-create.element.js"></script>
+</head>
+<body>
+  <h1>order-create-mfe (standalone)</h1>
+  <p>Isolated dev harness. The shell loads <code>order-create.element.js</code> from this server at runtime.</p>
+  <order-create-mfe currency="AUD"></order-create-mfe>
+  <h3>Emitted events</h3>
+  <pre id="log"></pre>
+  <script type="module">
+    const el = document.querySelector('order-create-mfe');
+    el.customers = [{ id: 'CUS-1', name: 'Demo Customer' }, { id: 'CUS-2', name: 'Another Customer' }];
+    el.products = [{ sku: 'DEMO-1', name: 'Demo Product', unitPrice: 99 }];
+    const log = document.getElementById('log');
+    for (const type of ['order-submitted', 'order-cancelled']) {
+      el.addEventListener(type, e => { log.textContent += `${type} ${JSON.stringify(e.detail ?? null)}\n`; });
+    }
+  </script>
+</body>
+</html>
