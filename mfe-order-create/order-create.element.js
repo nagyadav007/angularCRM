@@ -23,7 +23,7 @@ template.innerHTML = `
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
     .full { grid-column: 1 / -1; }
     label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
-    select, input, textarea { font: inherit; font-weight: 400; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff000; }
+    select, input, textarea { font: inherit; font-weight: 400; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #ffffff; }
     input[readonly] { background: #f9fafb; }
     [aria-invalid="true"] { border-color: #b91c1c; }
     .error { color: #b91c1c; font-size: 12px; font-weight: 400; min-height: 1em; }
